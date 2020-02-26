@@ -27,8 +27,16 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
 
+    //Getter,Setter,기본생성자,toString 등을 어노테이션으로 자동 생성
     compile('org.projectlombok:lombok')
-//    compile('com.h2database:h2')
-//    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    //스프링부트요 Spring Data JPA 추상화 라이브러리
+    //스프링부트의 버전에 맞춰 자동의 JPA 관련 라이브러리들의 버전을 관리
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    //인메모리 관계형 데이터베이스
+    //별도의 설치없이 프로젝트 의존성만으로 관리
+    //애플리케이션 재시작마다 초기화됨
+    compile('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

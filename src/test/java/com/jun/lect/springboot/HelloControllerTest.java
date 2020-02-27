@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class HelloControllerTest {
 
-    //스프링이 관리하는 Bean 을 주입 받음
+    //스프링이 관리하는 Bean 을 주입 받음 (Bean = 자바 객체라고 보면 이해가 쉽다)
     @Autowired
 
     //웹 API 를 테스트할 때 사용

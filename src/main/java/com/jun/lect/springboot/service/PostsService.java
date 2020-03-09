@@ -3,13 +3,16 @@ package com.jun.lect.springboot.service;
 
 import com.jun.lect.springboot.domain.posts.Posts;
 import com.jun.lect.springboot.domain.posts.PostsRepository;
+import com.jun.lect.springboot.web.dto.PostsListResponseDto;
 import com.jun.lect.springboot.web.dto.PostsResponseDto;
 import com.jun.lect.springboot.web.dto.PostsSaveRequestDto;
 import com.jun.lect.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 //lombok
 //final 이 선언된 모든 필드를 인자값으로 하는 생성자를 대신 생성
@@ -46,7 +49,20 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
+    //readOnly 옵션을 주면 트랜잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도 개선
+    @Transactional(readOnly=true)
+    public List<PostsListResponseDto> findAllDecs(){
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new) //map(posts -> new PostsListResponseDto(posts)) 와 같다
+                .collect(Collectors.toList());
+    }
 
+    @Transactional
+    public void delete(Long id){
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
+        postsRepository.delete(posts);
+    }
 
 
 

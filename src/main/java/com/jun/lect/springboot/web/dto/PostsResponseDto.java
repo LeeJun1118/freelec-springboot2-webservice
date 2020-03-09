@@ -4,6 +4,9 @@ package com.jun.lect.springboot.web.dto;
 import com.jun.lect.springboot.domain.posts.Posts;
 import lombok.Getter;
 
+
+//Entity 필드 중 일부만 사용하므로 생성자로 Entity 를 받아 필드에 값을 넣음
+//굳이 모든 필드를 가진 생성자가 필요하진 않으므로 Dto Entity 를 받아 처리
 @Getter
 public class PostsResponseDto {
 

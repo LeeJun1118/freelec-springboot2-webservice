@@ -38,5 +38,9 @@ dependencies {
     //별도의 설치없이 프로젝트 의존성만으로 관리
     //메모리에서 실행되기 때문에 애플리케이션 재시작마다 초기화됨(테스트 용도로 많이 사용)
     compile('com.h2database:h2')
+
+    //스프링부트에서 머스테치를 편하게 사용할 수 있도록 의존성 추가
+    compile('org.springframework.boot:spring-boot-starter-mustache')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

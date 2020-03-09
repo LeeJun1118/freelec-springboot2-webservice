@@ -9,6 +9,19 @@
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            <!-- 머스테치는 다른 언어와 같은 if문을 제공하지 않는다. true/false 만 판단함 -->
+            <!-- 그래서 머스테치에서는 항상 최종값을 넘겨줘야한다. -->
+            {{#userName}}
+                Logged in as : <span id="user">{{userName}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+            {{/userName}}
+
+            {{^userName}}
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+            {{/userName}}
+
+
+
         </div>
     </div>
     <br>

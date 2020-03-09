@@ -42,5 +42,9 @@ dependencies {
     //스프링부트에서 머스테치를 편하게 사용할 수 있도록 의존성 추가
     compile('org.springframework.boot:spring-boot-starter-mustache')
 
+    //소셜 로그인 등 클라이언트 입장에서 소셜 기능 구현 시 필요한 의존성
+    //spring-security-oauth2-client 와 spring-security-oauth2-jose 를 기본으로 관리해줌
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

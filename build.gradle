@@ -46,5 +46,8 @@ dependencies {
     //spring-security-oauth2-client 와 spring-security-oauth2-jose 를 기본으로 관리해줌
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
 
+    //세션 저장소를 jdbc 를 사용
+    compile('org.springframework.session:spring-session-jdbc')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

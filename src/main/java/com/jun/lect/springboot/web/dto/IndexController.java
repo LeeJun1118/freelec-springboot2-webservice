@@ -1,5 +1,6 @@
 package com.jun.lect.springboot.web.dto;
 
+import com.jun.lect.springboot.config.oauth.LoginUser;
 import com.jun.lect.springboot.config.oauth.dto.SessionUser;
 import com.jun.lect.springboot.service.PostsService;
 import lombok.RequiredArgsConstructor;
@@ -18,18 +19,15 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
-
 
     //여기선 "index"를 반환하므로 src/main/resource/templates/index.mustache 로 전환되어 View Resolver 가 처리한다.
     @GetMapping("/")
     //Model 은 서버 템플릿 엔진에서 사용할 수 있는 객체를 저장할 수 있음
-    //여기서는 postsService.findAllDesc()로 가져온 결과를 posts 로 index.mustache 에 전달달
-   public String index(Model model){
+    //여기서는 postsService.findAllDesc()로 가져온 결과를 posts 로 index.mustache 에 전달
+    //@LoginUser SessionUser user 를 써서 기존에 httpSession.getAttribute("user") 로 가져오던 세션 정보 값이 개선됨
+    //이제는 어느 컨트롤러든지 @LoginUser 만 사용하면 세션 정보를 가져올 수 있음
+   public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts",postsService.findAllDecs());
-
-        //CustomOAuth2UserService 에서 로그인 성공 시 세션에 SessionUser 를 저장
-        SessionUser user = (SessionUser)httpSession.getAttribute("user");
 
         //세션에 저장된 값이 있을 때만 model 에 userName 으로 등록
         //세션에 저장된 값이 없으면 model 엔 아무런 값이 없는 상태이니 로그인 버튼이 보이게 됨

@@ -26,7 +26,7 @@ public class IndexControllerTest {
         //then
         //TestRestTemplate 를 통해 "/"로 호출했을 때 index.mustache 에 포함된 코드들이 있는지 확인한다.
         //여기선 전체 코드를 검증할 필요가 없으니 "스프링 부트로 시작하는 웹서비스"문자열이 있는지 비교했다.
-        assertThat(body).contains("스프링 부트로 시작하는 웹서비스");
+        assertThat(body).contains("스프링부트로 시작하는 웹 서비스 Ver.2");
     }
 
 }

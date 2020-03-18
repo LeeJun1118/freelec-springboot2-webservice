@@ -46,6 +46,8 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello));//mvc.perform 의 결과 검증, 응답 본문의 내용 검증, 리턴 값이 "hello" 인지 검증
     }
 
+    @WithMockUser(roles = "USER")
+    @Test
     public void helloDto_return() throws Exception{
         String name = "hello";
         int amount = 1000;

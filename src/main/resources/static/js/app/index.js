@@ -3,7 +3,7 @@ var main = {
         var _this = this;
 
         //btn-save 란 id를 가진 HTML 요소에 click 이벤트가 발생할 때 save function 을 실행하도록 이벤트 등록록
-       $('#btn-save').on('click', function () {
+        $('#btn-save').on('click', function () {
             _this.save();
         });
 
@@ -45,7 +45,7 @@ var main = {
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/posts/'+id, //어느 게시글을 수정할지 url path 로 구분하기 위해 path 에 id 추가
+            url: '/api/v1/posts/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)

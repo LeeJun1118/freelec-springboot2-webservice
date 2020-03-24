@@ -43,19 +43,6 @@ public class PostsService {
         return id;
     }
 
-    public PostsResponseDto findById(Long id){
-        Posts entity = postsRepository.findById(id)
-                .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id =" + id));
-        return new PostsResponseDto(entity);
-    }
-
-    //readOnly 옵션을 주면 트랜잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도 개선
-    @Transactional(readOnly=true)
-    public List<PostsListResponseDto> findAllDecs(){
-        return postsRepository.findAllDesc().stream()
-                .map(PostsListResponseDto::new) //map(posts -> new PostsListResponseDto(posts)) 와 같다
-                .collect(Collectors.toList());
-    }
 
     @Transactional
     public void delete(Long id){
@@ -63,6 +50,22 @@ public class PostsService {
                 .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
         postsRepository.delete(posts);
     }
+
+    //readOnly 옵션을 주면 트랜잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도 개선
+    @Transactional(readOnly=true)
+    public PostsResponseDto findById(Long id){
+        Posts entity = postsRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id =" + id));
+        return new PostsResponseDto(entity);
+    }
+
+    @Transactional(readOnly=true)
+    public List<PostsListResponseDto> findAllDecs(){
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new) //map(posts -> new PostsListResponseDto(posts)) 와 같다
+                .collect(Collectors.toList());
+    }
+
 
 
 

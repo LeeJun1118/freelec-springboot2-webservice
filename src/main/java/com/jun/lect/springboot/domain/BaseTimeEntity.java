@@ -23,7 +23,7 @@ public class BaseTimeEntity {
 
     //Entity 가 생성되어 저장될 때 시간이 자동 저장
     @CreatedDate
-    private LocalDateTime createDate;
+    private LocalDateTime createdDate;
 
     //조회한 Entity 값을 변경할 때 시간이 자동 저장
     @LastModifiedDate

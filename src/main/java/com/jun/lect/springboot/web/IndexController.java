@@ -1,8 +1,9 @@
-package com.jun.lect.springboot.web.dto;
+package com.jun.lect.springboot.web;
 
 import com.jun.lect.springboot.config.oauth.LoginUser;
 import com.jun.lect.springboot.config.oauth.dto.SessionUser;
 import com.jun.lect.springboot.service.PostsService;
+import com.jun.lect.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

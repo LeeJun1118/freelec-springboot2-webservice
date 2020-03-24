@@ -1,4 +1,4 @@
-package com.jun.lect.springboot.domain.posts;
+package com.jun.lect.springboot.domain;
 
 
 import lombok.Getter;

@@ -3,7 +3,6 @@ package com.jun.lect.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 
 //JPA Auditing 활성화

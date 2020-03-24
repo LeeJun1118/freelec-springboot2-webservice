@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Configuration
-public class Webconfig implements WebMvcConfigurer {
+public class WebConfig implements WebMvcConfigurer {
 
     private final LoginUserArgumentResolver loginUserArgumentResolver;
 

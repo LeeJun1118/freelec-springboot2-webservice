@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 //Spring Security 설정들 활성화시켜줌
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final CustomOauth2UserService customOauth2UserService;
+    private final CustomOAuth2UserService customOAuth2UserService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -44,6 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .userInfoEndpoint()
                         //소셜 로그인 성공시 후속 조치를 진행할 UserService 인터페이스의 구현체를 등록
                         //리소스 서버(소셜서비스)에서 사용자 정보를 가져온 상태에서 추가로 진행하고자 하는 기능 명시
-                        .userService(customOauth2UserService);
+                        .userService(customOAuth2UserService);
     }
 }
